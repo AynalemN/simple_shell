@@ -10,6 +10,8 @@
 #include <stdbool.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <limits.h>
+#include <sys/stat.h>
 
 char **tokenizes(int *argc, char *command,  char *delim);
 char *readInput(void);
@@ -22,6 +24,10 @@ int executeBypath(char **argv);
 
 /* for command chaining */
 #define CMD_NORM	0
+
+/* for convert_number() */
+#define CONVERT_LOWERCASE	1
+#define CONVERT_UNSIGNED	2
 
 /* for History */
 #define HIST_FILE	".simple_shell_history"
@@ -162,12 +168,24 @@ void *_realloc(void *, unsigned int, unsigned int);
 /* toem_atoi.c */
 int interactive(info_t *);
 int is_delim(char, char *);
+int _isalpha(int);
+int _atoi(char *);
+
+/* toem_new_error.c */
+int _erratoi(char *);
+void print_error(info_t *, char *);
+int print_d(int, int);
+char *convert_number(long int, int, int);
+void remove_comments(char *);
 
 /* toem_string.c */
 int _strlen(char *);
 int _strcmp(char *, char *);
 char *starts_with(const char *, const char *);
 char *_strcat(char *, char *);
+
+/* toem_new_string.c */
+char *_strcpy(char *, char *);
 
 /* toem_exits.c */
 char *_strncpy(char *, char *, int);
