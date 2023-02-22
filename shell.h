@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <stdbool.h>
+#include <fcntl.h>
 
 char **tokenizes(int *argc, char *command,  char *delim);
 char *readInput(void);
@@ -31,6 +32,7 @@ int executeBypath(char **argv);
  *@path: a string path for the current command
  *@fname: the program filename
  *@cmd_buf: address of pointer to cmd_buf, on if chaining
+ *@history: the history node
  */
 typedef struct passinfo
 {
@@ -42,6 +44,7 @@ typedef struct passinfo
 	int err_num;
 	list_t *env;
     char *fname;
+    list_t *history;
     char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
 } info_t;
 
