@@ -29,7 +29,7 @@ typedef struct passinfo
 	int argc;
 	int status;
 	int err_num;
-    list_t *env;
+	list_t *env;
 } info_t;
 
 /**
