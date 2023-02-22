@@ -1,14 +1,16 @@
 #include "shell.h"
 /**
- * freeArray- to free the array
- * @arr: is the array
- * Return: void
+ * freeMemory- to free the pointers and NULL addresses
+ * @ptr: is the address to be freed
+ * Return: 1 if freed, else 0
  */
-void freeArray(char **arr)
+int freeMemory(void **ptr)
 {
-	for (int i = 0; arr[i]; i++)
+	if (ptr && *ptr)
 	{
-		free(arr[i]);
+		free(*ptr);
+		*ptr = NULL;
+		return (1);
 	}
-	free(arr);
+	return (0);
 }
