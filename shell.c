@@ -1,23 +1,47 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "shell.h"
 /**
- * main - display prompt and wait for user to enter a command
- * and display an error if EOF
- * also check the buffer allocated
+ * main - display prompt and wait for user to enter a command,
+ * display an error if EOF and execute the program
  * Return: Always 0
  */
 int main(void)
 {
-	char *command = NULL;
-	size_t leng = 0;
-
-	while (1)
+	while (true)
 	{
+		char *command = NULL;
+		size_t leng = 0;
+
 		printf("$ ");
-		getline(&command, &leng, stdin);
-		printf("%s", command);
-		printf("The length of the buffer allocated: %zu\n", leng);
-	}
-	free(command);
+		int charRead = getline(&command, &leng, stdin);
+
+		if (charRead == -1)
+		{
+			free(command);
+			return (-1);
+		}
+		int argc = 0;
+		char *delim = " \n";
+		char **argv = tokenizes(&argc, command, delim);
+
+		pid_t pid = fork();
+
+		if (pid == -1)
+		{
+			perror("ERROR pid");
+			return (-1);
+		}
+		else if (pid == 0)
+		{
+			if (execve(argv[0], argv, NULL) == -1)
+				return (-1);
+		}
+		else
+		{
+			wait(0);
+		}
+		for (int i = 0; argv[i] != NULL; i++)
+			printf("argv[%d] = %s\n", i, argv[i]);
+		free(command);
+		}
 	return (0);
 }
