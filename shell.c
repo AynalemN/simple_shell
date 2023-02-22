@@ -8,22 +8,13 @@ int main(void)
 {
 	while (true)
 	{
-		char *command = NULL;
-		size_t leng = 0;
-
-		printf("$ ");
-		int charRead = getline(&command, &leng, stdin);
-
-		if (charRead == -1)
-		{
-			free(command);
-			return (-1);
-		}
 		int argc = 0;
 		char *delim = " \n";
+		char *command = readInput();
 		char **argv = tokenizes(&argc, command, delim);
 
 		executeBypath(argv);
+		freeArray(argv);
 		free(command);
 		}
 	return (0);
