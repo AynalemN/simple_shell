@@ -17,10 +17,10 @@ typedef struct passinfo
 {
 	char *arg;
 	char **argv;
-    int argc;
-    int status;
-    int err_num;
-}info_t;
+	int argc;
+	int status;
+	int err_num;
+} info_t;
 
 /* toem_freeArray.c */
 int freeMemory(void **);
