@@ -159,6 +159,9 @@ char *_memset(char *, char, unsigned int);
 void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
+/* toem_atoi.c */
+int interactive(info_t *);
+
 /* toem_string.c */
 int _strlen(char *);
 int _strcmp(char *, char *);
@@ -167,6 +170,8 @@ char *_strcat(char *, char *);
 
 /* toem_exits.c */
 char *_strncpy(char *, char *, int);
+char *_strncat(char *, char *, int);
+char *_strchr(char *, char);
 
 /* toem_tokenizer.c */
 char **strtow(char *, char *);
