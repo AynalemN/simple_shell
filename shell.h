@@ -165,4 +165,7 @@ int _strcmp(char *, char *);
 char *starts_with(const char *, const char *);
 char *_strcat(char *, char *);
 
+/* toem_exits.c */
+char *_strncpy(char *, char *, int);
+
 #endif/* SHELL_H */
