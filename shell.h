@@ -24,6 +24,9 @@ int executeBypath(char **argv);
 
 /* for command chaining */
 #define CMD_NORM	0
+#define CMD_OR		1
+#define CMD_AND		2
+#define CMD_CHAIN	3
 
 /* for convert_number() */
 #define CONVERT_LOWERCASE	1
@@ -186,6 +189,9 @@ char *_strcat(char *, char *);
 
 /* toem_new_string.c */
 char *_strcpy(char *, char *);
+char *_strdup(const char *);
+void _puts(char *);
+int _putchar(char);
 
 /* toem_exits.c */
 char *_strncpy(char *, char *, int);
@@ -195,5 +201,8 @@ char *_strchr(char *, char);
 /* toem_tokenizer.c */
 char **strtow(char *, char *);
 char **strtow2(char *, char);
+
+/* toem_vars.c */
+int is_chain(info_t *, char *, size_t *);
 
 #endif/* SHELL_H */
