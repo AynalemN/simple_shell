@@ -18,6 +18,7 @@ int executeBypath(char **argv);
 /* for read/write buffers */
 #define BUF_FLUSH -1
 #define READ_BUF_SIZE 1024
+#define WRITE_BUF_SIZE 1024
 
 /* for command chaining */
 #define CMD_NORM	0
@@ -146,6 +147,12 @@ void fork_cmd(info_t *);
 int is_cmd(info_t *, char *);
 char *dup_chars(char *, int, int);
 char *find_path(info_t *, char *, char *);
+
+/* toem_errors.c */
+void _eputs(char *);
+int _eputchar(char);
+int _putfd(char c, int fd);
+int _putsfd(char *str, int fd);
 
 /* toem_realloc.c */
 char *_memset(char *, char, unsigned int);
