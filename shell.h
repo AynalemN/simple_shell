@@ -168,4 +168,8 @@ char *_strcat(char *, char *);
 /* toem_exits.c */
 char *_strncpy(char *, char *, int);
 
+/* toem_tokenizer.c */
+char **strtow(char *, char *);
+char **strtow2(char *, char);
+
 #endif/* SHELL_H */
