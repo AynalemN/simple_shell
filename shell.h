@@ -133,4 +133,7 @@ void free_list(list_t **);
 size_t list_len(const list_t *);
 char **list_to_strings(list_t *);
 
+/* toem_parser.c */
+int is_cmd(info_t *, char *);
+
 #endif/* SHELL_H */
