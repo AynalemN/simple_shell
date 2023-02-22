@@ -159,4 +159,7 @@ char *_memset(char *, char, unsigned int);
 void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
+/* toem_string.c */
+int _strlen(char *);
+
 #endif/* SHELL_H */
