@@ -131,5 +131,6 @@ void free_list(list_t **);
 
 /* toem_list.c */
 size_t list_len(const list_t *);
+char **list_to_strings(list_t *);
 
 #endif/* SHELL_H */
