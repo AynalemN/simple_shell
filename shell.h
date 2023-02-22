@@ -163,5 +163,6 @@ void *_realloc(void *, unsigned int, unsigned int);
 int _strlen(char *);
 int _strcmp(char *, char *);
 char *starts_with(const char *, const char *);
+char *_strcat(char *, char *);
 
 #endif/* SHELL_H */
