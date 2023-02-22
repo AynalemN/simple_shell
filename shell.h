@@ -12,6 +12,13 @@
 char **tokenizes(int *argc, char *command,  char *delim);
 char *readInput(void);
 int executeBypath(char **argv);
+
+/* for read/write buffers */
+#define BUF_FLUSH -1
+
+/* for History */
+#define HIST_FILE	".simple_shell_history"
+
 /**
  *struct passinfo - contains pseudo-arguements to pass into a function,
  *		allowing uniform prototype for function pointer struct
@@ -23,6 +30,7 @@ int executeBypath(char **argv);
  *@env: linked list local copy of environ
  *@path: a string path for the current command
  *@fname: the program filename
+ *@cmd_buf: address of pointer to cmd_buf, on if chaining
  */
 typedef struct passinfo
 {
@@ -34,6 +42,7 @@ typedef struct passinfo
 	int err_num;
 	list_t *env;
     char *fname;
+    char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
 } info_t;
 
 /**
