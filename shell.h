@@ -67,7 +67,7 @@ typedef struct passinfo
 	int status;
 	int err_num;
 	int linecount_flag;
-    unsigned int line_count;
+	unsigned int line_count;
 	list_t *env;
 	char *fname;
 	list_t *history;
