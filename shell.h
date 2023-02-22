@@ -12,12 +12,21 @@
 char **tokenizes(int *argc, char *command,  char *delim);
 char *readInput(void);
 int executeBypath(char **argv);
-void freeArray(char **arr);
+
+typedef struct passinfo
+{
+	char *arg;
+	char **argv;
+    int argc;
+    int status;
+    int err_num;
+}info_t;
 
 /* toem_freeArray.c */
 int freeMemory(void **);
 
 /* toem_builtin.c */
 int _myexit(info_t *);
+int _mycd(info_t *);
 
 #endif/* SHELL_H */
