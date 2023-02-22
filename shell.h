@@ -17,9 +17,15 @@ int executeBypath(char **argv);
 /* for read/write buffers */
 #define BUF_FLUSH -1
 
+/* for command chaining */
+#define CMD_NORM	0
+
 /* for History */
 #define HIST_FILE	".simple_shell_history"
 #define HIST_MAX	4096
+
+extern char **environ;
+
 
 /**
  *struct passinfo - contains pseudo-arguements to pass into a function,
@@ -31,10 +37,13 @@ int executeBypath(char **argv);
  *@status: the return status of the last exec'd command
  *@env: linked list local copy of environ
  *@path: a string path for the current command
+ *@linecount_flag: if on count this line of input
  *@fname: the program filename
  *@cmd_buf: address of pointer to cmd_buf, on if chaining
  *@history: the history node
  *@alias: the alias node
+ *@cmd_buf_type: CMD_type ||, &&, ;
+ *@readfd: the fd from which to read line input
  *@histcount: the history line number count
  */
 typedef struct passinfo
@@ -45,11 +54,14 @@ typedef struct passinfo
     char *path;
 	int status;
 	int err_num;
+    int linecount_flag;
 	list_t *env;
     char *fname;
     list_t *history;
     list_t *alias;
     char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
+    int cmd_buf_type; /* CMD_type ||, &&, ; */
+    int readfd;
     int histcount;
 } info_t;
 
