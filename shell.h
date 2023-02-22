@@ -135,5 +135,6 @@ char **list_to_strings(list_t *);
 
 /* toem_parser.c */
 int is_cmd(info_t *, char *);
+char *dup_chars(char *, int, int);
 
 #endif/* SHELL_H */
