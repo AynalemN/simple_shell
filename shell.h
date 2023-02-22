@@ -161,6 +161,7 @@ void *_realloc(void *, unsigned int, unsigned int);
 
 /* toem_atoi.c */
 int interactive(info_t *);
+int is_delim(char, char *);
 
 /* toem_string.c */
 int _strlen(char *);
