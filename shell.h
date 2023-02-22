@@ -21,12 +21,14 @@ int executeBypath(char **argv);
  *@err_num: the error code for exit()s
  *@status: the return status of the last exec'd command
  *@env: linked list local copy of environ
+ *@path: a string path for the current command
  */
 typedef struct passinfo
 {
 	char *arg;
 	char **argv;
 	int argc;
+    char *path;
 	int status;
 	int err_num;
 	list_t *env;
@@ -70,5 +72,8 @@ char *_getenv(info_t *, const char *);
 int _mysetenv(info_t *);
 int _myunsetenv(info_t *);
 int populate_env_list(info_t *);
+
+/* toem_getinfo.c */
+void clear_info(info_t *);
 
 #endif/* SHELL_H */
