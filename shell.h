@@ -19,6 +19,7 @@ int executeBypath(char **argv);
 
 /* for History */
 #define HIST_FILE	".simple_shell_history"
+#define HIST_MAX	4096
 
 /**
  *struct passinfo - contains pseudo-arguements to pass into a function,
@@ -34,6 +35,7 @@ int executeBypath(char **argv);
  *@cmd_buf: address of pointer to cmd_buf, on if chaining
  *@history: the history node
  *@alias: the alias node
+ *@histcount: the history line number count
  */
 typedef struct passinfo
 {
@@ -48,6 +50,7 @@ typedef struct passinfo
     list_t *history;
     list_t *alias;
     char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
+    int histcount;
 } info_t;
 
 /**
