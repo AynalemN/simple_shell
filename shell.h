@@ -16,6 +16,7 @@ int executeBypath(char **argv);
 
 /* for read/write buffers */
 #define BUF_FLUSH -1
+#define READ_BUF_SIZE 1024
 
 /* for command chaining */
 #define CMD_NORM	0
@@ -36,12 +37,14 @@ extern char **environ;
  *@err_num: the error code for exit()s
  *@status: the return status of the last exec'd command
  *@env: linked list local copy of environ
+ *@environ: custom modified copy of environ from LL env
  *@path: a string path for the current command
  *@linecount_flag: if on count this line of input
  *@fname: the program filename
  *@cmd_buf: address of pointer to cmd_buf, on if chaining
  *@history: the history node
  *@alias: the alias node
+ *@env_changed: on if environ was changed
  *@cmd_buf_type: CMD_type ||, &&, ;
  *@readfd: the fd from which to read line input
  *@histcount: the history line number count
@@ -59,6 +62,8 @@ typedef struct passinfo
     char *fname;
     list_t *history;
     list_t *alias;
+    char **environ;
+    int env_changed;
     char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
     int cmd_buf_type; /* CMD_type ||, &&, ; */
     int readfd;

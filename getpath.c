@@ -1,28 +1,17 @@
 #include "shell.h"
 /**
- * executeBypath- getting and executing command by path
- * @argv: the string commands
+ * get_environ - returns the string array copy of our environ
+ * @info: Structure containing potential arguments. Used to maintain
+ *          constant function prototype.
  * Return: Always 0
  */
-int executeBypath(char **argv)
+char **get_environ(info_t *info)
 {
-	pid_t pid = fork();
+	if (!info->environ || info->env_changed)
+	{
+		info->environ = list_to_strings(info->env);
+		info->env_changed = 0;
+	}
 
-	if (pid == -1)
-	{
-		perror("ERROR pid\n");
-		return (EXIT_FAILURE);
-	}
-	else if (pid == 0)
-	{
-		if (execve(argv[0], argv, NULL) == -1)
-		{
-			perror("./shell");
-			return (EXIT_FAILURE);
-		}
-	}
-	else
-	{
-		wait(0);
-	}
+	return (info->environ);
 }
