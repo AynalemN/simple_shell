@@ -161,5 +161,6 @@ void *_realloc(void *, unsigned int, unsigned int);
 
 /* toem_string.c */
 int _strlen(char *);
+int _strcmp(char *, char *);
 
 #endif/* SHELL_H */
