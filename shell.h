@@ -10,5 +10,6 @@
 #include <stdbool.h>
 
 char** tokenizes(int *argc, char *command,  char *delim);
+int executeBypath(char **argv);
 
 #endif/* SHELL_H */
