@@ -141,6 +141,6 @@ char *find_path(info_t *, char *, char *);
 /* toem_realloc.c */
 char *_memset(char *, char, unsigned int);
 void ffree(char **);
-
+void *_realloc(void *, unsigned int, unsigned int);
 
 #endif/* SHELL_H */
