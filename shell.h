@@ -12,7 +12,16 @@
 char **tokenizes(int *argc, char *command,  char *delim);
 char *readInput(void);
 int executeBypath(char **argv);
-
+/**
+ *struct passinfo - contains pseudo-arguements to pass into a function,
+ *		allowing uniform prototype for function pointer struct
+ *@arg: a string generated from getline containing arguements
+ *@argv: an array of strings generated from arg
+ *@argc: the argument count
+ *@err_num: the error code for exit()s
+ *@status: the return status of the last exec'd command
+ *@env: linked list local copy of environ
+ */
 typedef struct passinfo
 {
 	char *arg;
@@ -20,7 +29,19 @@ typedef struct passinfo
 	int argc;
 	int status;
 	int err_num;
+    list_t *env;
 } info_t;
+
+/**
+ *struct builtin - contains a builtin string and related function
+ *@type: the builtin command flag
+ *@func: the function
+ */
+typedef struct builtin
+{
+	char *type;
+	int (*func)(info_t *);
+} builtin_table;
 
 /* toem_freeArray.c */
 int freeMemory(void **);
@@ -29,5 +50,8 @@ int freeMemory(void **);
 int _myexit(info_t *);
 int _mycd(info_t *);
 int _myhelp(info_t *);
+
+/* toem_environ.c */
+int _myenv(info_t *);
 
 #endif/* SHELL_H */
