@@ -14,4 +14,10 @@ char *readInput(void);
 int executeBypath(char **argv);
 void freeArray(char **arr);
 
+/* toem_freeArray.c */
+int freeMemory(void **);
+
+/* toem_builtin.c */
+int _myexit(info_t *);
+
 #endif/* SHELL_H */
