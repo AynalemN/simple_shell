@@ -9,6 +9,7 @@
 #include <sys/wait.h>
 #include <stdbool.h>
 #include <fcntl.h>
+#include <errno.h>
 
 char **tokenizes(int *argc, char *command,  char *delim);
 char *readInput(void);
@@ -39,6 +40,7 @@ extern char **environ;
  *@env: linked list local copy of environ
  *@environ: custom modified copy of environ from LL env
  *@path: a string path for the current command
+ *@line_count: the error count
  *@linecount_flag: if on count this line of input
  *@fname: the program filename
  *@cmd_buf: address of pointer to cmd_buf, on if chaining
@@ -58,6 +60,7 @@ typedef struct passinfo
 	int status;
 	int err_num;
 	int linecount_flag;
+    unsigned int line_count;
 	list_t *env;
 	char *fname;
 	list_t *history;
@@ -132,6 +135,12 @@ void free_list(list_t **);
 /* toem_list.c */
 size_t list_len(const list_t *);
 char **list_to_strings(list_t *);
+
+/* toem_shloop.c */
+int hsh(info_t *, char **);
+int find_builtin(info_t *);
+void find_cmd(info_t *);
+void fork_cmd(info_t *);
 
 /* toem_parser.c */
 int is_cmd(info_t *, char *);
