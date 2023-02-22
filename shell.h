@@ -28,5 +28,6 @@ int freeMemory(void **);
 /* toem_builtin.c */
 int _myexit(info_t *);
 int _mycd(info_t *);
+int _myhelp(info_t *);
 
 #endif/* SHELL_H */
