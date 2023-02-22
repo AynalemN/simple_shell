@@ -22,6 +22,7 @@ int executeBypath(char **argv);
  *@status: the return status of the last exec'd command
  *@env: linked list local copy of environ
  *@path: a string path for the current command
+ *@fname: the program filename
  */
 typedef struct passinfo
 {
@@ -32,6 +33,7 @@ typedef struct passinfo
 	int status;
 	int err_num;
 	list_t *env;
+    char *fname;
 } info_t;
 
 /**
@@ -75,5 +77,6 @@ int populate_env_list(info_t *);
 
 /* toem_getinfo.c */
 void clear_info(info_t *);
+void set_info(info_t *, char **);
 
 #endif/* SHELL_H */
