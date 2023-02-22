@@ -43,6 +43,19 @@ typedef struct builtin
 	int (*func)(info_t *);
 } builtin_table;
 
+/**
+ * struct liststr - singly linked list
+ * @num: the number field
+ * @str: a string
+ * @next: points to the next node
+ */
+typedef struct liststr
+{
+	int num;
+	char *str;
+	struct liststr *next;
+} list_t;
+
 /* toem_freeArray.c */
 int freeMemory(void **);
 
@@ -53,5 +66,6 @@ int _myhelp(info_t *);
 
 /* toem_environ.c */
 int _myenv(info_t *);
+char *_getenv(info_t *, const char *);
 
 #endif/* SHELL_H */
