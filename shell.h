@@ -33,6 +33,7 @@ int executeBypath(char **argv);
  *@fname: the program filename
  *@cmd_buf: address of pointer to cmd_buf, on if chaining
  *@history: the history node
+ *@alias: the alias node
  */
 typedef struct passinfo
 {
@@ -45,6 +46,7 @@ typedef struct passinfo
 	list_t *env;
     char *fname;
     list_t *history;
+    list_t *alias;
     char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
 } info_t;
 
@@ -79,6 +81,10 @@ int freeMemory(void **);
 int _myexit(info_t *);
 int _mycd(info_t *);
 int _myhelp(info_t *);
+
+/* toem_history_aliance.c */
+int _myhistory(info_t *);
+int _myalias(info_t *);
 
 /* toem_environ.c */
 int _myenv(info_t *);
