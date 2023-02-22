@@ -67,5 +67,6 @@ int _myhelp(info_t *);
 /* toem_environ.c */
 int _myenv(info_t *);
 char *_getenv(info_t *, const char *);
+int _mysetenv(info_t *);
 
 #endif/* SHELL_H */
