@@ -83,6 +83,10 @@ typedef struct passinfo
 	int histcount;
 } info_t;
 
+#define INFO_INIT \
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+	0, 0, 0}
+
 /**
  *struct builtin - contains a builtin string and related function
  *@type: the builtin command flag
@@ -204,5 +208,9 @@ char **strtow2(char *, char);
 
 /* toem_vars.c */
 int is_chain(info_t *, char *, size_t *);
+void check_chain(info_t *, char *, size_t *, size_t, size_t);
+int replace_alias(info_t *);
+int replace_vars(info_t *);
+int replace_string(char **, char *);
 
 #endif/* SHELL_H */
