@@ -43,6 +43,7 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 	}
 	return (r);
 }
+
 /**
  * get_input - gets a line minus the newline
  * @info: parameter struct
@@ -60,7 +61,7 @@ ssize_t get_input(info_t *info)
 	r = input_buf(info, &buf, &len);
 	if (r == -1) /* EOF */
 		return (-1);
-	if (len)	/* we have commands left in the chain buffer */
+	if (len) /* we have commands left in the chain buffer */
 	{
 		j = i; /* init new iterator to current buf position */
 		p = buf + i; /* get pointer for return */
@@ -83,9 +84,11 @@ ssize_t get_input(info_t *info)
 		*buf_p = p; /* pass back pointer to current command position */
 		return (_strlen(p)); /* return length of current command */
 	}
+
 	*buf_p = buf; /* else not a chain, pass back buffer from _getline() */
 	return (r); /* return length of buffer from _getline() */
 }
+
 /**
  * read_buf - reads a buffer
  * @info: parameter struct
@@ -105,6 +108,7 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
 		*i = r;
 	return (r);
 }
+
 /**
  * _getline - gets the next line of input from STDIN
  * @info: parameter struct
@@ -151,6 +155,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	*ptr = p;
 	return (s);
 }
+
 /**
  * sigintHandler - blocks ctrl-C
  * @sig_num: the signal number

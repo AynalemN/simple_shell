@@ -11,6 +11,7 @@ void clear_info(info_t *info)
 	info->path = NULL;
 	info->argc = 0;
 }
+
 /**
  * set_info - initializes info_t struct
  * @info: struct address
@@ -26,7 +27,6 @@ void set_info(info_t *info, char **av)
 		info->argv = strtow(info->arg, " \t");
 		if (!info->argv)
 		{
-
 			info->argv = malloc(sizeof(char *) * 2);
 			if (info->argv)
 			{
@@ -42,6 +42,7 @@ void set_info(info_t *info, char **av)
 		replace_vars(info);
 	}
 }
+
 /**
  * free_info - frees info_t struct fields
  * @info: struct address
@@ -64,7 +65,7 @@ void free_info(info_t *info, int all)
 			free_list(&(info->alias));
 		ffree(info->environ);
 			info->environ = NULL;
-		freeMemory((void **)info->cmd_buf);
+		bfree((void **)info->cmd_buf);
 		if (info->readfd > 2)
 			close(info->readfd);
 		_putchar(BUF_FLUSH);

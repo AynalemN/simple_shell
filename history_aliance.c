@@ -12,6 +12,7 @@ int _myhistory(info_t *info)
 	print_list(info->history);
 	return (0);
 }
+
 /**
  * unset_alias - sets alias to string
  * @info: parameter struct
@@ -34,6 +35,7 @@ int unset_alias(info_t *info, char *str)
 	*p = c;
 	return (ret);
 }
+
 /**
  * set_alias - sets alias to string
  * @info: parameter struct
@@ -54,6 +56,7 @@ int set_alias(info_t *info, char *str)
 	unset_alias(info, str);
 	return (add_node_end(&(info->alias), str, 0) == NULL);
 }
+
 /**
  * print_alias - prints an alias string
  * @node: the alias node
@@ -68,7 +71,7 @@ int print_alias(list_t *node)
 	{
 		p = _strchr(node->str, '=');
 		for (a = node->str; a <= p; a++)
-			_putchar(*a);
+		_putchar(*a);
 		_putchar('\'');
 		_puts(p + 1);
 		_puts("'\n");
@@ -76,6 +79,7 @@ int print_alias(list_t *node)
 	}
 	return (1);
 }
+
 /**
  * _myalias - mimics the alias builtin (man alias)
  * @info: Structure containing potential arguments. Used to maintain

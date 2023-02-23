@@ -17,6 +17,7 @@ int _strlen(char *s)
 		i++;
 	return (i);
 }
+
 /**
  * _strcmp - performs lexicogarphic comparison of two strangs.
  * @s1: the first strang
@@ -38,6 +39,7 @@ int _strcmp(char *s1, char *s2)
 	else
 		return (*s1 < *s2 ? -1 : 1);
 }
+
 /**
  * starts_with - checks if needle starts with haystack
  * @haystack: string to search
@@ -48,14 +50,11 @@ int _strcmp(char *s1, char *s2)
 char *starts_with(const char *haystack, const char *needle)
 {
 	while (*needle)
-	{
 		if (*needle++ != *haystack++)
-		{
 			return (NULL);
-		}
-		return ((char *)haystack);
-	}
+	return ((char *)haystack);
 }
+
 /**
  * _strcat - concatenates two strings
  * @dest: the destination buffer

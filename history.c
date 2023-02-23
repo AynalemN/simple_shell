@@ -6,6 +6,7 @@
  *
  * Return: allocated string containg history file
  */
+
 char *get_history_file(info_t *info)
 {
 	char *buf, *dir;
@@ -22,6 +23,7 @@ char *get_history_file(info_t *info)
 	_strcat(buf, HIST_FILE);
 	return (buf);
 }
+
 /**
  * write_history - creates a file, or appends to an existing file
  * @info: the parameter struct
@@ -50,6 +52,7 @@ int write_history(info_t *info)
 	close(fd);
 	return (1);
 }
+
 /**
  * read_history - reads history from file
  * @info: the parameter struct
@@ -98,6 +101,7 @@ int read_history(info_t *info)
 	renumber_history(info);
 	return (info->histcount);
 }
+
 /**
  * build_history_list - adds entry to a history linked list
  * @info: Structure containing potential arguments. Used to maintain
@@ -118,6 +122,7 @@ int build_history_list(info_t *info, char *buf, int linecount)
 		info->history = node;
 	return (0);
 }
+
 /**
  * renumber_history - renumbers the history linked list after changes
  * @info: Structure containing potential arguments. Used to maintain

@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * get_environ - returns the string array copy of our environ
  * @info: Structure containing potential arguments. Used to maintain
@@ -15,6 +16,7 @@ char **get_environ(info_t *info)
 
 	return (info->environ);
 }
+
 /**
  * _unsetenv - Remove an environment variable
  * @info: Structure containing potential arguments. Used to maintain
@@ -46,6 +48,7 @@ int _unsetenv(info_t *info, char *var)
 	}
 	return (info->env_changed);
 }
+
 /**
  * _setenv - Initialize a new environment variable,
  *             or modify an existing one
