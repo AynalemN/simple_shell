@@ -148,6 +148,7 @@ void sigintHandler(int);
 /* toem_getinfo.c */
 void clear_info(info_t *);
 void set_info(info_t *, char **);
+void free_info(info_t *, int);
 
 /* toem_lists.c */
 list_t *add_node(list_t **, const char *, int);
