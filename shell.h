@@ -7,15 +7,10 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include <stdbool.h>
 #include <fcntl.h>
 #include <errno.h>
 #include <limits.h>
 #include <sys/stat.h>
-
-char **tokenizes(int *argc, char *command,  char *delim);
-char *readInput(void);
-int executeBypath(char **argv);
 
 /* for read/write buffers */
 #define BUF_FLUSH -1
@@ -32,12 +27,28 @@ int executeBypath(char **argv);
 #define CONVERT_LOWERCASE	1
 #define CONVERT_UNSIGNED	2
 
+/* 1 if using system getline() */
+#define USE_GETLINE 0
+#define USE_STRTOK 0
+
 /* for History */
 #define HIST_FILE	".simple_shell_history"
 #define HIST_MAX	4096
 
 extern char **environ;
 
+/**
+ * struct liststr - singly linked list
+ * @num: the number field
+ * @str: a string
+ * @next: points to the next node
+ */
+typedef struct liststr
+{
+	int num;
+	char *str;
+	struct liststr *next;
+} list_t;
 
 /**
  *struct passinfo - contains pseudo-arguements to pass into a function,
@@ -98,19 +109,6 @@ typedef struct builtin
 	int (*func)(info_t *);
 } builtin_table;
 
-/**
- * struct liststr - singly linked list
- * @num: the number field
- * @str: a string
- * @next: points to the next node
- */
-typedef struct liststr
-{
-	int num;
-	char *str;
-	struct liststr *next;
-} list_t;
-
 /* toem_freeArray.c */
 int freeMemory(void **);
 
@@ -118,6 +116,13 @@ int freeMemory(void **);
 int _myexit(info_t *);
 int _mycd(info_t *);
 int _myhelp(info_t *);
+
+/* toem_history.c */
+char *get_history_file(info_t *info);
+int write_history(info_t *info);
+int read_history(info_t *info);
+int build_history_list(info_t *info, char *buf, int linecount);
+int renumber_history(info_t *info);
 
 /* toem_history_aliance.c */
 int _myhistory(info_t *);
@@ -134,6 +139,11 @@ int populate_env_list(info_t *);
 char **get_environ(info_t *);
 int _unsetenv(info_t *, char *);
 int _setenv(info_t *, char *, char *);
+
+/*toem_getline.c */
+ssize_t get_input(info_t *);
+int _getline(info_t *, char **, size_t *);
+void sigintHandler(int);
 
 /* toem_getinfo.c */
 void clear_info(info_t *);
