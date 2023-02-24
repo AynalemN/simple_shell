@@ -61,7 +61,6 @@ $ exit
 ## Limitations
 - Redirection of standard input and output (e.g. ls > file.txt)
 - Pipes (e.g. ls | grep foo)
-- Background execution of commands (e.g. sleep 10 &)
 - It does not support tab completion
 - It does not support shell functions or aliases
 
@@ -118,7 +117,20 @@ There was 6 mandatory tasks and 11 advanced tasks, to check the detail click the
 11. Handle the commands separator
 12. andle the `&&` and `||` shell logical operators
 13. Implement the `alias` builtin command
-14. 
+    - Usage: `alias [name[='value'] ...]`
+      - `alias`: Prints a list of all aliases, one per line, in the form `name='value'`
+      - `alias name [name2 ...]`: Prints the aliases `name`, `name2`, etc 1 per line, in the form `name='value'`
+      - `alias name='value' [...]`: Defines an alias for each `name` whose `value` is given. If `name` is already an alias, replaces its value with `value`
+14. Handle variables replacement
+    - Handle the `$?` variable
+    - Handle the `$$` variable
+15. Handle comments `(#)`
+16. File as input
+    - Usage: `simple_shell [filename]`
+    - Your shell can take a file as a command line argument
+    - The file contains all the commands that your shell should run before exiting
+    - The file should contain one command per line
+    - In this mode, the shell should not print a prompt and should not read from `stdin`
 </details>
 
 
