@@ -23,3 +23,9 @@ You can download the source code of this project by running the following comman
 ```
 https://github.com/AynalemN/simple_shell.git
 ```
+Once you have downloaded the source code, you can build the executable by running the following command:
+
+```
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+```
+This will create an executable file named `hsh` in the same directory.
