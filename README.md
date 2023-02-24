@@ -64,6 +64,14 @@ $ exit
 - Background execution of commands (e.g. sleep 10 &)
 - It does not support tab completion
 - It does not support shell functions or aliases
+***
+
+## Tasks
+<details>
+<summary>Click To check Detailed tasks</summary>
+
+    
+</details>
 
 
 ***
