@@ -7,6 +7,20 @@
 ![GitHub forks](https://img.shields.io/github/forks/AynalemN/simple_shell?logo=github&style=falt)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/AynalemN/simple_shell?logo=github)
 
+## Table of content
+- [Simple\_shell](#simple_shell)
+  - [Table of content](#table-of-content)
+  - [Description](#description)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+  - [Installing](#installing)
+  - [Usage](#usage)
+  - [Features](#features)
+  - [Limitations](#limitations)
+  - [Tasks](#tasks)
+    - [Mandatory](#mandatory)
+    - [Advanced](#advanced)
+  - [contributors](#contributors)
 ## Description
 
 This is a simple implementation of a shell in Linux written in C. The purpose of this project is to replicate the behavior of a shell like Bash, allowing users to execute commands and perform various operations in a Linux environment.
@@ -138,7 +152,7 @@ There was 6 mandatory tasks and 11 advanced tasks, to check the detail click the
 
 
 ***
-### contributors
+## contributors
 <a href="https://github.com/AynalemN/simple_shell/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=AynalemN/simple_shell" />
 </a>
