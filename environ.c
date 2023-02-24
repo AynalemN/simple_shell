@@ -23,6 +23,7 @@ int _myenv(info_t *info)
  *
  * Return: the value
  */
+
 char *_getenv(info_t *info, const char *name)
 {
 	list_t *node = info->env;
@@ -41,10 +42,13 @@ char *_getenv(info_t *info, const char *name)
 /**
  * _mysetenv - Initialize a new environment variable,
  *             or modify an existing one
+ *
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
+ *
  *  Return: Always 0
  */
+
 int _mysetenv(info_t *info)
 {
 	if (info->argc != 3)
