@@ -7,6 +7,13 @@
 ![GitHub forks](https://img.shields.io/github/forks/AynalemN/simple_shell?logo=github&style=falt)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/AynalemN/simple_shell?logo=github)
 
-## description
+## Description
 
 This is a simple implementation of a shell in Linux written in C. The purpose of this project is to replicate the behavior of a shell like Bash, allowing users to execute commands and perform various operations in a Linux environment.
+
+## Getting Started
+### Prerequisites
+In order to build and run this project, you need to have the following software installed on your system:
+
+- Git
+- GCC
