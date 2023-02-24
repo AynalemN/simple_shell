@@ -17,3 +17,9 @@ In order to build and run this project, you need to have the following software 
 
 - Git
 - GCC
+
+## Installing
+You can download the source code of this project by running the following command:
+```
+https://github.com/AynalemN/simple_shell.git
+```
