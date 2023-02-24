@@ -29,7 +29,7 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 		{
 			if ((*buf)[r - 1] == '\n')
 			{
-				(*buf)[r - 1] = '\0'; 
+				(*buf)[r - 1] = '\0';
 				r--;
 			}
 			info->linecount_flag = 1;
@@ -54,7 +54,7 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 
 ssize_t get_input(info_t *info)
 {
-	static char *buf; 
+	static char *buf;
 	static size_t i, j, len;
 	ssize_t r = 0;
 	char **buf_p = &(info->arg), *p;
