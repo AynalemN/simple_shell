@@ -65,3 +65,10 @@ $ exit
 - Background execution of commands (e.g. sleep 10 &)
 - It does not support tab completion
 - It does not support shell functions or aliases
+
+
+***
+### contributors
+<a href="https://github.com/AynalemN/simple_shell/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=AynalemN/simple_shell" />
+</a>
