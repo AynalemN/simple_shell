@@ -57,7 +57,6 @@ $ exit
 - Running external commands (e.g. ls, echo, etc.)
 - Changing directories with the cd command
 - Handling of signals (e.g. Ctrl-C to interrupt a command)
-- 
 
 ## Limitations
 - Redirection of standard input and output (e.g. ls > file.txt)
