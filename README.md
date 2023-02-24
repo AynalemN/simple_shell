@@ -52,3 +52,16 @@ To exit the shell, you can use the exit command:
 ```bash
 $ exit
 ```
+
+## Features
+- Running external commands (e.g. ls, echo, etc.)
+- Changing directories with the cd command
+- Handling of signals (e.g. Ctrl-C to interrupt a command)
+- 
+
+## Limitations
+- Redirection of standard input and output (e.g. ls > file.txt)
+- Pipes (e.g. ls | grep foo)
+- Background execution of commands (e.g. sleep 10 &)
+- It does not support tab completion
+- It does not support shell functions or aliases
