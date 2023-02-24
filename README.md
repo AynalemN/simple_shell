@@ -1,5 +1,5 @@
 
-# Simple Shell
+# Simple_shell
 ![banner](img/alx_simple_shell.png)
 ![GitHub repo size](https://img.shields.io/github/repo-size/AynalemN/simple_shell)
 ![GitHub issues](https://img.shields.io/github/issues/AynalemN/simple_shell)
