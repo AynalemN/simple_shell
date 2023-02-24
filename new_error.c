@@ -133,10 +133,12 @@ char *convert_number(long int num, int base, int flags)
 
 /**
  * remove_comments - function replaces first instance of '#' with '\0'
+ *
  * @buf: address of the string to modify
  *
  * Return: Always 0;
  */
+
 void remove_comments(char *buf)
 {
 	int i;
